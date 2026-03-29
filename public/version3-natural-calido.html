@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UHAUS - Materiales para tu Hogar</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--green:#2d5016;--green-light:#4a7a2e;--beige:#f4efe4;--terracotta:#c4652a;--cream:#faf8f3;--dark:#2c2c2c;--terracotta-light:#d4854a}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:var(--cream);color:var(--dark);line-height:1.7;font-weight:400}
+h1,h2,h3,h4{font-family:'DM Serif Display',serif;font-weight:400}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;background:var(--cream);transition:all .4s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08);padding:10px 0}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--green);letter-spacing:2px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--dark);font-size:.9rem;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:var(--terracotta)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
+.hamburger span{width:25px;height:3px;background:var(--green);border-radius:3px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--cream);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.active{display:flex}
+.mobile-menu a{color:var(--green);font-size:1.3rem;font-family:'DM Serif Display',serif}
+.mobile-menu .close{position:absolute;top:20px;right:24px;font-size:2rem;color:var(--green);cursor:pointer;background:none;border:none}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#e8dfd0 0%,#d4c4a8 50%,#c9b896 100%);overflow:hidden;padding-top:80px}
+.hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:rgba(45,80,22,.1)}
+.hero::after{content:'';position:absolute;left:-50px;bottom:-50px;width:300px;height:300px;border-radius:50%;background:rgba(196,101,42,.08)}
+.hero-content{position:relative;z-index:1;max-width:700px;padding:0 24px}
+.hero-tag{display:inline-block;background:var(--green);color:var(--cream);padding:6px 20px;border-radius:50px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;font-weight:500}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);color:var(--dark);margin-bottom:20px;line-height:1.2}
+.hero h1 span{color:var(--green)}
+.hero p{font-size:1.1rem;color:#666;margin-bottom:36px;max-width:500px}
+.btn-terra{display:inline-block;padding:16px 40px;background:var(--terracotta);color:var(--cream);border-radius:50px;font-family:'Work Sans',sans-serif;font-size:.9rem;font-weight:500;letter-spacing:1px;transition:all .3s;border:none;cursor:pointer}
+.btn-terra:hover{background:var(--terracotta-light);transform:translateY(-2px);box-shadow:0 8px 25px rgba(196,101,42,.3)}
+
+/* SECTIONS */
+section{padding:100px 0}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title .tag{display:inline-block;background:rgba(45,80,22,.1);color:var(--green);padding:4px 16px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.section-title h2{font-size:clamp(1.8rem,3vw,2.6rem);color:var(--dark);margin-bottom:12px}
+.section-title p{color:#888;font-size:.95rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-img{aspect-ratio:4/3;background:linear-gradient(135deg,var(--beige),#d4c4a8);border-radius:20px;display:flex;align-items:center;justify-content:center;color:#999;font-size:.9rem;letter-spacing:1px;position:relative;overflow:hidden}
+.about-img::before{content:'';position:absolute;top:20px;left:20px;right:20px;bottom:20px;border:2px solid rgba(45,80,22,.15);border-radius:16px}
+.about-text p{color:#555;margin-bottom:18px;font-size:.95rem}
+.about-highlight{display:flex;gap:40px;margin-top:30px}
+.about-stat{text-align:center}
+.about-stat .num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--terracotta)}
+.about-stat .label{font-size:.8rem;color:#888;text-transform:uppercase;letter-spacing:1px}
+
+/* PRODUCTS */
+.products-section{background:var(--beige)}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.product-card{background:var(--cream);border-radius:16px;overflow:hidden;transition:all .4s}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.product-img{aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:#999;letter-spacing:1px}
+.product-card:nth-child(1) .product-img{background:linear-gradient(135deg,#d4c4a8,#c9b896)}
+.product-card:nth-child(2) .product-img{background:linear-gradient(135deg,#c4d4a8,#b8c996)}
+.product-card:nth-child(3) .product-img{background:linear-gradient(135deg,#d4b8a8,#c9a896)}
+.product-card:nth-child(4) .product-img{background:linear-gradient(135deg,#a8c4d4,#96b8c9)}
+.product-info{padding:24px}
+.product-info h3{font-size:1.2rem;margin-bottom:8px;color:var(--dark)}
+.product-info p{font-size:.85rem;color:#888;margin-bottom:16px}
+.product-info a{color:var(--terracotta);font-size:.85rem;font-weight:600;transition:color .3s}
+.product-info a:hover{color:var(--green)}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.why-card{text-align:center;padding:40px 28px;background:var(--beige);border-radius:20px;transition:all .3s}
+.why-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+.why-icon{width:70px;height:70px;margin:0 auto 20px;background:rgba(45,80,22,.1);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.why-icon svg{width:32px;height:32px}
+.why-card h3{font-size:1.2rem;margin-bottom:10px;color:var(--dark)}
+.why-card p{font-size:.9rem;color:#777}
+
+/* PROJECTS */
+.projects-section{background:var(--beige)}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.project-card .bg{width:100%;height:100%;transition:transform .5s}
+.project-card:nth-child(1) .bg{background:linear-gradient(135deg,#c9b896,#b8a880)}
+.project-card:nth-child(2) .bg{background:linear-gradient(135deg,#96c9a8,#80b898)}
+.project-card:nth-child(3) .bg{background:linear-gradient(135deg,#c9a896,#b89880)}
+.project-card:nth-child(4) .bg{background:linear-gradient(135deg,#a8c996,#98b880)}
+.project-card:nth-child(5) .bg{background:linear-gradient(135deg,#96a8c9,#8098b8)}
+.project-card:nth-child(6) .bg{background:linear-gradient(135deg,#c99696,#b88080)}
+.project-overlay{position:absolute;inset:0;background:rgba(45,80,22,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .4s;border-radius:16px}
+.project-card:hover .project-overlay{opacity:1}
+.project-card:hover .bg{transform:scale(1.08)}
+.project-overlay h3{color:var(--cream);font-size:1.2rem;letter-spacing:1px}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{padding:36px 28px;background:var(--beige);border-radius:16px;border-left:4px solid var(--green)}
+.stars{color:var(--terracotta);font-size:1rem;margin-bottom:14px}
+.testimonial-card blockquote{font-style:italic;color:#555;font-size:.95rem;margin-bottom:18px;line-height:1.8}
+.testimonial-author{font-weight:600;color:var(--green);font-size:.85rem}
+
+/* CONTACT */
+.contact-section{background:var(--beige)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.form-group{margin-bottom:18px}
+.form-group input,.form-group textarea{width:100%;padding:14px 20px;background:var(--cream);border:2px solid transparent;border-radius:12px;font-family:'Work Sans',sans-serif;font-size:.9rem;color:var(--dark);outline:none;transition:border .3s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--green)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#aaa}
+.form-group textarea{resize:vertical;min-height:120px}
+.btn-green{padding:14px 40px;background:var(--green);color:var(--cream);border:none;border-radius:50px;font-family:'Work Sans',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;transition:all .3s;letter-spacing:1px}
+.btn-green:hover{background:var(--green-light);transform:translateY(-2px)}
+.contact-info{display:flex;flex-direction:column;justify-content:center}
+.contact-item{margin-bottom:28px;display:flex;align-items:flex-start;gap:16px}
+.contact-icon{width:44px;height:44px;background:rgba(45,80,22,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:20px;height:20px;fill:var(--green)}
+.contact-item h4{font-family:'Work Sans',sans-serif;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:4px;font-weight:600}
+.contact-item p{color:#666;font-size:.95rem}
+.social-links{display:flex;gap:12px;margin-top:20px}
+.social-links a{width:44px;height:44px;background:var(--green);border-radius:12px;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.social-links a:hover{background:var(--green-light);transform:translateY(-2px)}
+.social-links svg{width:20px;height:20px;fill:var(--cream)}
+
+/* FOOTER */
+footer{background:var(--green);color:var(--cream);padding:50px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-about p{color:rgba(250,248,243,.7);font-size:.9rem;margin-top:12px}
+.footer-col h4{font-family:'Work Sans',sans-serif;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;color:var(--terracotta-light)}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:8px}
+.footer-col ul a{color:rgba(250,248,243,.7);font-size:.9rem;transition:color .3s}
+.footer-col ul a:hover{color:var(--cream)}
+.footer-bottom{border-top:1px solid rgba(250,248,243,.15);padding-top:24px;text-align:center;color:rgba(250,248,243,.5);font-size:.8rem}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+.products-grid{grid-template-columns:repeat(2,1fr)}
+.projects-grid{grid-template-columns:repeat(2,1fr)}
+.testimonials-grid,.about-grid,.contact-grid,.why-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+section{padding:70px 0}
+.hero{text-align:center}
+.hero p{margin-left:auto;margin-right:auto}
+.about-highlight{justify-content:center}
+}
+@media(max-width:480px){
+.products-grid,.projects-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+<div class="container">
+<a href="#" class="logo">UHAUS</a>
+<ul class="nav-links">
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#productos">Productos</a></li>
+<li><a href="#proyectos">Proyectos</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+<button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('active')">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+<div class="mobile-menu">
+<button class="close" onclick="this.parentElement.classList.remove('active')">&times;</button>
+<a href="#inicio" onclick="this.parentElement.classList.remove('active')">Inicio</a>
+<a href="#nosotros" onclick="this.parentElement.classList.remove('active')">Nosotros</a>
+<a href="#productos" onclick="this.parentElement.classList.remove('active')">Productos</a>
+<a href="#proyectos" onclick="this.parentElement.classList.remove('active')">Proyectos</a>
+<a href="#contacto" onclick="this.parentElement.classList.remove('active')">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+<div class="container">
+<div class="hero-content">
+<span class="hero-tag">Materiales de Construcción</span>
+<h1>Construí con los <span>Mejores Materiales</span></h1>
+<p>Aberturas, Pisos, Puertas y Paneles para tu hogar. Calidad y asesoramiento en cada proyecto.</p>
+<a href="#contacto" class="btn-terra">Cotizá tu Proyecto</a>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros">
+<div class="container">
+<div class="section-title fade-in"><span class="tag">Sobre Nosotros</span><h2>Quiénes Somos</h2></div>
+<div class="about-grid fade-in">
+<div class="about-text">
+<p>En UHAUS nos especializamos en ofrecer materiales de construcción de primera calidad. Con años de experiencia en el mercado, brindamos soluciones integrales para cada tipo de proyecto, desde reformas hasta construcciones nuevas.</p>
+<p>Nuestro compromiso es acompañarte en cada paso, ofreciendo asesoramiento personalizado y los mejores productos del mercado.</p>
+<div class="about-highlight">
+<div class="about-stat"><div class="num">10+</div><div class="label">Años</div></div>
+<div class="about-stat"><div class="num">500+</div><div class="label">Proyectos</div></div>
+<div class="about-stat"><div class="num">100%</div><div class="label">Compromiso</div></div>
+</div>
+</div>
+<div class="about-img">IMAGEN</div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="productos" class="products-section">
+<div class="container">
+<div class="section-title fade-in"><span class="tag">Catálogo</span><h2>Nuestros Productos</h2><p>Materiales seleccionados para cada tipo de proyecto</p></div>
+<div class="products-grid">
+<div class="product-card fade-in"><div class="product-img">ABERTURAS</div><div class="product-info"><h3>Aberturas</h3><p>Ventanas y aberturas de aluminio, PVC y madera de la más alta calidad.</p><a href="#">Ver más →</a></div></div>
+<div class="product-card fade-in"><div class="product-img">PUERTAS</div><div class="product-info"><h3>Puertas</h3><p>Puertas de interior y exterior en diversos materiales y terminaciones.</p><a href="#">Ver más →</a></div></div>
+<div class="product-card fade-in"><div class="product-img">PISOS</div><div class="product-info"><h3>Pisos</h3><p>Pisos flotantes, cerámicos, porcelanatos y decks para cada ambiente.</p><a href="#">Ver más →</a></div></div>
+<div class="product-card fade-in"><div class="product-img">PANELES</div><div class="product-info"><h3>Paneles</h3><p>Paneles decorativos y funcionales para revestimientos interiores y exteriores.</p><a href="#">Ver más →</a></div></div>
+</div>
+</div>
+</section>
+
+<!-- WHY US -->
+<section>
+<div class="container">
+<div class="section-title fade-in"><span class="tag">Ventajas</span><h2>¿Por qué Elegirnos?</h2></div>
+<div class="why-grid">
+<div class="why-card fade-in">
+<div class="why-icon"><svg viewBox="0 0 64 64" fill="none"><path d="M32 8l6 14h14l-11 9 4 14-13-8-13 8 4-14-11-9h14z" stroke="#2d5016" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+<h3>Calidad</h3><p>Trabajamos con las mejores marcas y materiales del mercado.</p>
+</div>
+<div class="why-card fade-in">
+<div class="why-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="20" r="10" stroke="#2d5016" stroke-width="2.5"/><path d="M16 52c0-9 7-16 16-16s16 7 16 16" stroke="#2d5016" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+<h3>Asesoramiento</h3><p>Te guiamos en cada etapa de tu proyecto con atención personalizada.</p>
+</div>
+<div class="why-card fade-in">
+<div class="why-icon"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="20" stroke="#2d5016" stroke-width="2.5"/><path d="M24 32h16M32 24v16" stroke="#2d5016" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+<h3>Ahorro</h3><p>Los mejores precios sin resignar calidad.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="proyectos" class="projects-section">
+<div class="container">
+<div class="section-title fade-in"><span class="tag">Portfolio</span><h2>Últimos Proyectos</h2></div>
+<div class="projects-grid">
+<div class="project-card fade-in"><div class="bg"></div><div class="project-overlay"><h3>Spa &amp; Aberturas</h3></div></div>
+<div class="project-card fade-in"><div class="bg"></div><div class="project-overlay"><h3>Al Revés</h3></div></div>
+<div class="project-card fade-in"><div class="bg"></div><div class="project-overlay"><h3>Proyecto Isla</h3></div></div>
+<div class="project-card fade-in"><div class="bg"></div><div class="project-overlay"><h3>Casa Afinches</h3></div></div>
+<div class="project-card fade-in"><div class="bg"></div><div class="project-overlay"><h3>Exteriores</h3></div></div>
+<div class="project-card fade-in"><div class="bg"></div><div class="project-overlay"><h3>Pisos y Decks</h3></div></div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+<div class="container">
+<div class="section-title fade-in"><span class="tag">Opiniones</span><h2>Testimonios</h2></div>
+<div class="testimonials-grid">
+<div class="testimonial-card fade-in"><div class="stars">★★★★★</div><blockquote>Excelente atención y productos de primera calidad. Nos asesoraron en todo el proceso de la obra y quedamos muy conformes.</blockquote><div class="testimonial-author">María González</div></div>
+<div class="testimonial-card fade-in"><div class="stars">★★★★★</div><blockquote>Los mejores precios del mercado sin resignar calidad. Las aberturas que compramos superaron nuestras expectativas.</blockquote><div class="testimonial-author">Carlos Rodríguez</div></div>
+<div class="testimonial-card fade-in"><div class="stars">★★★★★</div><blockquote>Profesionalismo y compromiso. UHAUS nos acompañó desde el primer día hasta la entrega final del proyecto.</blockquote><div class="testimonial-author">Ana Martínez</div></div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto" class="contact-section">
+<div class="container">
+<div class="section-title fade-in"><span class="tag">Escribinos</span><h2>Contactános</h2></div>
+<div class="contact-grid fade-in">
+<form onsubmit="event.preventDefault();alert('¡Mensaje enviado! Te contactaremos pronto.')">
+<div class="form-group"><input type="text" placeholder="Nombre" required></div>
+<div class="form-group"><input type="email" placeholder="Email" required></div>
+<div class="form-group"><input type="tel" placeholder="Teléfono"></div>
+<div class="form-group"><textarea placeholder="Contanos sobre tu proyecto..." required></textarea></div>
+<button type="submit" class="btn-green">Enviar Mensaje</button>
+</form>
+<div class="contact-info">
+<div class="contact-item">
+<div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+<div><h4>Teléfono</h4><p>099 123 456</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+<div><h4>Email</h4><p>info@uhaus.uy</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+<div><h4>Dirección</h4><p>Montevideo, Uruguay</p></div>
+</div>
+<div class="social-links">
+<a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+<a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="#faf8f3" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="#faf8f3" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#faf8f3"/></svg></a>
+<a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5-1.4c1.5.9 3.2 1.4 5 1.4 5.5 0 10-4.5 10-10S17.5 2 12 2z" fill="none" stroke="#faf8f3" stroke-width="1.5"/><path d="M17 14.4c-.3-.1-1.7-.9-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z" fill="#faf8f3"/></svg></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about">
+<div class="logo" style="color:var(--cream)">UHAUS</div>
+<p>Materiales de construcción de primera calidad. Tu proyecto, nuestra prioridad.</p>
+</div>
+<div class="footer-col">
+<h4>Navegación</h4>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#productos">Productos</a></li>
+<li><a href="#proyectos">Proyectos</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Contacto</h4>
+<ul>
+<li><a href="#">099 123 456</a></li>
+<li><a href="#">info@uhaus.uy</a></li>
+<li><a href="#">Montevideo, Uruguay</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 UHAUS. Todos los derechos reservados.</div>
+</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
