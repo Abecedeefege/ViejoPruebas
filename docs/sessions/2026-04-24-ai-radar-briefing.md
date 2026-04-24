@@ -27,7 +27,7 @@ Configurar un flujo donde Claude actúe como analista de tendencias AI: escanear
 - Scan en paralelo de HN (front + Show), GitHub trending (Py + TS), Product Hunt, HF Spaces.
 - Búsquedas targeted: Claude releases, MCP releases, voice AI, indie hackers con MRR, AppsFlyer/Adjust, Alexa + OpenAI.
 - Borrador del briefing con 5 items top, 3 agentes, 7 menciones.
-- Draft creado en Gmail a `airadar@itamoa.com`.
+- Intento de draft en Gmail a `airadar@itamoa.com` — **falló**: el MCP de Gmail requiere re-autorización (token expirado). Guardado el HTML completo en `2026-04-24-ai-radar-email.html` para enviar manualmente o reintentar.
 
 ## Aprendizajes
 

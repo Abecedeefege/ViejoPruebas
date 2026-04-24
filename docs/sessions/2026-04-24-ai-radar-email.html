@@ -1,0 +1,104 @@
+<!-- Subject: AI radar — 24/04 -->
+<!-- To: airadar@itamoa.com -->
+<!-- NOTA: el MCP de Gmail requiere re-autorización. Pegar este HTML en un compose de Gmail mientras tanto. -->
+
+<h2>🔥 Top 5 — lo más copado</h2>
+
+<p><strong>1. Claude Managed Agents (public beta)</strong> 🎯</p>
+<ul>
+<li><strong>Qué es:</strong> harness oficial de Anthropic para correr Claude como agente autónomo 24/7 con sandbox, tools built-in y SSE streaming. $0.08/h + tokens (~$58/mes de runtime).</li>
+<li><strong>Link:</strong> <a href="https://www.the-ai-corner.com/p/claude-managed-agents-guide-2026">the-ai-corner.com/p/claude-managed-agents-guide-2026</a></li>
+<li><strong>Por qué me importa:</strong>
+  <ul>
+    <li><em>BoopKids:</em> agente que escanea cada noche App Store / Play Store / TikTok por trends de kids apps y devuelve 3 ideas de creativos listos para testear al otro día.</li>
+    <li><em>FindMeTea:</em> agente que scrapea reviews nuevos de té, actualiza embeddings y redeploya el recomendador sin tocar nada.</li>
+    <li><em>Portal Garzón:</em> agente que monitorea menciones de "José Ignacio", "Laguna Garzón", aperturas de restaurantes, y arma posts semanales SEO.</li>
+    <li><em>Alexa skills:</em> agente que lee los logs de CloudWatch, detecta intents con baja confianza y propone utterances nuevos.</li>
+    <li><em>Meta:</em> este mismo briefing puede correr solo acá adentro.</li>
+  </ul>
+</li>
+<li><strong>Dificultad:</strong> media • <strong>Autonomía:</strong> 5/5</li>
+</ul>
+
+<p><strong>2. ml-intern (HuggingFace)</strong> 🎯</p>
+<ul>
+<li><strong>Qué es:</strong> agente open-source que lee papers, entrena modelos y los deploya. +2,981 stars <em>hoy</em>.</li>
+<li><strong>Link:</strong> <a href="https://github.com/huggingface/ml-intern">github.com/huggingface/ml-intern</a></li>
+<li><strong>Por qué me importa:</strong>
+  <ul>
+    <li><em>FindMeTea:</em> patrón directo — agente que lee papers nuevos de embeddings/retrieval, prueba en el dataset de tés y solo mergea si mejora NDCG.</li>
+    <li><em>Consultoría growth:</em> aplicable a entrenar modelos de prediction de churn para clientes, sin hands-on.</li>
+  </ul>
+</li>
+<li><strong>Dificultad:</strong> difícil • <strong>Autonomía:</strong> 5/5</li>
+</ul>
+
+<p><strong>3. OmniVoice (k2-fsa en HF)</strong> 🎯</p>
+<ul>
+<li><strong>Qué es:</strong> voice cloning de alta calidad en 600+ idiomas. Trending en HF Spaces.</li>
+<li><strong>Link:</strong> <a href="https://huggingface.co/spaces/k2-fsa/OmniVoice">huggingface.co/spaces/k2-fsa/OmniVoice</a></li>
+<li><strong>Por qué me importa:</strong>
+  <ul>
+    <li><em>Portal Garzón:</em> guía de voz con acento rioplatense para turistas AR/BR/US/EU. Bot de WhatsApp que contesta con audio clonado del dueño del restaurante.</li>
+    <li><em>Alexa skills:</em> skill con voz custom diferenciada (gaucho, sommelier, narrador infantil). Competitive moat vs skills con voz default.</li>
+    <li><em>BoopKids:</em> doblaje multi-idioma de tus ads de creativos sin pagar locutor por mercado. Voz del padre/madre del niño para onboarding personalizado.</li>
+  </ul>
+</li>
+<li><strong>Dificultad:</strong> fácil (demo en HF); media (self-host para prod) • <strong>Autonomía:</strong> 3/5</li>
+</ul>
+
+<p><strong>4. DeepSeek v4 (1M context, open source)</strong></p>
+<ul>
+<li><strong>Qué es:</strong> modelo open con 1M tokens de contexto. #2 en HN con 1,438 pts.</li>
+<li><strong>Link:</strong> <a href="https://api-docs.deepseek.com/">api-docs.deepseek.com</a></li>
+<li><strong>Por qué me importa:</strong>
+  <ul>
+    <li><em>FindMeTea:</em> meter todo el catálogo + reviews en un solo prompt para generar recomendaciones con razonamiento explícito ("te recomiendo X porque coincide con Y y Z que compraste").</li>
+    <li><em>Consultoría growth:</em> cargar todo el Mixpanel/GA/AppsFlyer export de un cliente en un prompt y pedir insights — sin pipeline de RAG.</li>
+    <li><em>Alexa:</em> todos los logs de skill de una semana analizables en un prompt.</li>
+  </ul>
+</li>
+<li><strong>Dificultad:</strong> media • <strong>Autonomía:</strong> 4/5</li>
+</ul>
+
+<p><strong>5. Claude Opus 4.7 default + 1h prompt caching en Claude Code</strong></p>
+<ul>
+<li><strong>Qué es:</strong> Opus 4.7 default desde el 23/04 en Claude Code. Caching extendido a 1h (antes 5 min), Skills como slash commands, sesión recap.</li>
+<li><strong>Link:</strong> <a href="https://www.anthropic.com/engineering/april-23-postmortem">anthropic.com/engineering/april-23-postmortem</a></li>
+<li><strong>Por qué me importa:</strong>
+  <ul>
+    <li><em>Todos tus proyectos:</em> 3-5x más barato mantener un agente corriendo con contexto grande (repos, docs de Alexa, catálogo de té) si reusás el cache.</li>
+    <li><em>Consultoría:</em> empaquetá tu playbook de growth como Skills con slash commands — /audit-funnel, /ideas-creatives, /churn-diagnosis.</li>
+  </ul>
+</li>
+<li><strong>Dificultad:</strong> fácil • <strong>Autonomía:</strong> 4/5</li>
+</ul>
+
+<h2>🤖 Agentes autónomos destacados (top 3)</h2>
+
+<p><strong>1. Claude Managed Agents</strong> — ver arriba. El más accionable para vos hoy. <strong>Autonomía:</strong> 5/5.</p>
+
+<p><strong>2. ml-intern</strong> — ver arriba. Cierra el loop entero ML research → train → deploy. <strong>Autonomía:</strong> 5/5.</p>
+
+<p><strong>3. BAND (Product Hunt)</strong></p>
+<ul>
+<li><strong>Qué es:</strong> orquestar y gobernar trabajo multi-agente en un solo chat.</li>
+<li><strong>Link:</strong> <a href="https://www.producthunt.com/products/band">producthunt.com/products/band</a></li>
+<li><strong>Por qué me importa:</strong> si ya estás apilando 3-4 agentes (BoopKids ads, Portal Garzón SEO, FindMeTea ranking, Alexa logs), mirá qué abstracciones usan antes de hackearte la tuya. Puede ser la capa de control que te evita construir un orquestador propio.</li>
+<li><strong>Dificultad:</strong> N/A (producto) • <strong>Autonomía:</strong> 4/5</li>
+</ul>
+
+<h2>📎 Menciones rápidas</h2>
+
+<ul>
+<li><strong>claude-context MCP</strong> — codebase como contexto para cualquier coding agent, +706 stars hoy. Útil si tenés repos grandes (BoopKids, skills de Alexa). <a href="https://github.com/zilliztech/claude-context">github.com/zilliztech/claude-context</a></li>
+<li><strong>Kleo: $0 → $62k MRR en 3 meses solo-built con Claude Code</strong> — prueba cruda de velocidad solo-founder. <a href="https://www.indiehackers.com/post/tech/from-0-to-62k-mrr-in-three-months-mUPVSYOlJAC2iogGK7d4">indiehackers.com/post</a></li>
+<li><strong>AppsFlyer My Dashboards AI</strong> — analytics de attribution conversacional. Relevante directo para BoopKids. <a href="https://www.appsflyer.com/product-news/">appsflyer.com/product-news</a></li>
+<li><strong>Azure MCP Server 2.0</strong> — remote MCP self-hosted. Útil para que agentes toquen infra sin exponer creds. <a href="https://devblogs.microsoft.com/azure-sdk/announcing-azure-mcp-server-2-0-stable-release/">devblogs.microsoft.com</a></li>
+<li><strong>Wispr Flow</strong> (527 upvotes PH) — dictation 4x más rápido. Señal: voice input está volviendo fuerte en desktop. <a href="https://www.producthunt.com/products/wisprflow">producthunt.com/products/wisprflow</a></li>
+<li><strong>Factory AI cierra $150M Series C @ $1.5B</strong> — autonomía full-cycle paga. <a href="https://tech-insider.org/factory-ai-150-million-series-c-khosla-coding-droids-2026/">tech-insider.org</a></li>
+<li><strong>Google stitch-skills</strong> — library de Agent Skills compatible con Claude Code. <a href="https://github.com/google-labs-code/stitch-skills">github.com/google-labs-code/stitch-skills</a></li>
+</ul>
+
+<hr>
+<p><em>Próximos briefings: respondé a este mail con feedback ("más hyperlocal", "menos coding tools", "repetiste X") y lo ajusto.</em></p>
