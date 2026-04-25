@@ -42,6 +42,8 @@ Configurar un flujo donde Claude actúe como analista de tendencias AI: escanear
 - `news.ycombinator.com/front` → 503. Usar la API de Algolia siempre.
 - No hay `mcp__Gmail__get_me` — hay que pedirle el email al usuario explícitamente (o leerlo del repo si lo documentamos acá).
 - MCP de PushNotification y labeling de Gmail se desconectaron mid-session. No confiar en que estén disponibles.
+- **SMTP outbound bloqueado en el sandbox** (puertos 25/465/587/2525 todos timeout). HTTPS sí funciona. Para enviar desde este sandbox hace falta API HTTP (Resend, Mailgun, Postmark). El Gmail MCP NO expone `send`, solo `create_draft`. App Passwords de Gmail no sirven desde acá (sí desde la máquina del usuario o GitHub Actions).
+- Verificado el 24/04: `api.resend.com` 200, `api.mailgun.net` 200, `api.postmarkapp.com` 302 — todos reachable.
 
 ### Patrones reutilizables
 - **Filtro de relevancia:** no forzar ángulo cuando no aplica (el usuario lo pidió explícito en la sesión). Es mejor omitir que estirar.
@@ -51,9 +53,11 @@ Configurar un flujo donde Claude actúe como analista de tendencias AI: escanear
 ## Feedback del usuario
 
 1. **Email destino:** `airadar@itamoa.com` (guardar en preferencias de sesión).
-2. **Más ejemplos por proyecto** en cada item. Incluir 1, 2, o todos los proyectos que apliquen.
-3. **No forzar** — si no aplica a ningún proyecto, dejarlo vacío.
-4. **Documentar aprendizajes** en este repo tras cada sesión (origen de este archivo).
+2. **Sender propuesto:** `agency@itamoa.com`.
+3. **Más ejemplos por proyecto** en cada item. Incluir 1, 2, o todos los proyectos que apliquen.
+4. **No forzar** — si no aplica a ningún proyecto, dejarlo vacío.
+5. **Documentar aprendizajes** en este repo tras cada sesión (origen de este archivo).
+6. **CRÍTICO — investigar antes de proponer.** El usuario marcó (con razón) que propuse SMTP sin verificar si el sandbox lo permitía. Resultado: él generó un Gmail App Password, lo compartió, y después descubrimos que SMTP estaba bloqueado. Regla permanente: **antes de proponer una solución que requiera trabajo o secretos del usuario, testear conectividad / disponibilidad de la dependencia desde este entorno**. Es un costo barato comparado con hacer perder tiempo + pedir un secreto inutilizable.
 
 ## Para futuras sesiones (AI radar recurrente)
 
