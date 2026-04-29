@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Las mejores croquetas de Uruguay, hechas por un chef con mundo. Artesanales, crocantes, a domicilio en Montevideo.">
+<meta name="theme-color" content="#0E0E0E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_UY">
+<meta property="og:title" content="La Croqueta — Croquetas artesanales a domicilio">
+<meta property="og:description" content="Croquetas artesanales por un chef con trayectoria en Uruguay, España y Perú. Pedí por WhatsApp.">
+<title>La Croqueta — Croquetas artesanales a domicilio en Uruguay</title>
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><radialGradient id='g' cx='35%25' cy='30%25' r='75%25'><stop offset='0%25' stop-color='%23E8B964'/><stop offset='100%25' stop-color='%23B8862E'/></radialGradient></defs><ellipse cx='32' cy='32' rx='26' ry='20' fill='url(%23g)'/><circle cx='22' cy='26' r='1.5' fill='%23704C18' opacity='.55'/><circle cx='40' cy='24' r='1.2' fill='%23704C18' opacity='.5'/><circle cx='34' cy='34' r='1.4' fill='%23704C18' opacity='.6'/><circle cx='44' cy='38' r='1.1' fill='%23704C18' opacity='.45'/><circle cx='20' cy='38' r='1' fill='%23704C18' opacity='.5'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E0E0E;
+    --bg-2: #161616;
+    --surface: #1B1B1B;
+    --gold: #D4A24C;
+    --gold-light: #E8B964;
+    --gold-deep: #B8862E;
+    --cream: #F5EFE6;
+    --muted: #A39A8C;
+    --olive: #2F3A2C;
+    --line: rgba(212, 162, 76, 0.18);
+    --line-strong: rgba(212, 162, 76, 0.45);
+
+    --ff-display: "Fraunces", "Times New Roman", serif;
+    --ff-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --container: 1200px;
+    --gutter: clamp(20px, 4vw, 40px);
+    --section-y: clamp(72px, 11vw, 128px);
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+    --r-pill: 999px;
+
+    --shadow-sm: 0 4px 14px rgba(0,0,0,.35);
+    --shadow-md: 0 18px 40px rgba(0,0,0,.45);
+    --shadow-gold: 0 10px 32px rgba(212,162,76,.18);
+
+    --t-fast: 160ms ease;
+    --t-base: 280ms cubic-bezier(.2,.7,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  ul { list-style: none; padding: 0; margin: 0; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--ff-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    margin: 0;
+    color: var(--cream);
+  }
+  h1 { font-size: clamp(40px, 6.4vw, 72px); }
+  h2 { font-size: clamp(30px, 4.4vw, 48px); }
+  h3 { font-size: clamp(22px, 2.4vw, 28px); }
+  p { margin: 0; }
+
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .lead {
+    color: var(--muted);
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .em-italic { font-style: italic; color: var(--gold-light); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: var(--r-pill);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    transition: transform var(--t-base), box-shadow var(--t-base), background var(--t-fast), color var(--t-fast);
+    will-change: transform;
+  }
+  .btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+  .btn-primary {
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    color: #1A1206;
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(212,162,76,.28); }
+
+  .btn-ghost {
+    color: var(--cream);
+    border: 1px solid var(--line-strong);
+    background: rgba(245,239,230,.02);
+  }
+  .btn-ghost:hover { background: rgba(212,162,76,.08); border-color: var(--gold); }
+
+  .btn-link {
+    color: var(--cream);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    transition: color var(--t-fast), border-color var(--t-fast);
+  }
+  .btn-link:hover { color: var(--gold-light); border-color: var(--gold); }
+
+  section { padding-top: var(--section-y); padding-bottom: var(--section-y); }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+    border: 0;
+    margin: 0;
+  }
+
+  ::selection { background: var(--gold); color: #1A1206; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ===== Header & Nav ===== */
+  section[id] { scroll-margin-top: 80px; }
+  body.is-locked { overflow: hidden; }
+
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    height: 72px;
+    display: flex; align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: background var(--t-base), border-color var(--t-base), backdrop-filter var(--t-base);
+  }
+  .site-header.is-scrolled {
+    background: rgba(14, 14, 14, 0.82);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-bottom-color: var(--line);
+  }
+  .site-header .container {
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo { display: inline-flex; align-items: center; gap: 12px; color: var(--cream); }
+  .logo-mark { width: 40px; height: 30px; flex: 0 0 auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+  .logo-word {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.005em;
+    color: var(--cream);
+    white-space: nowrap;
+  }
+  .logo-word .accent { color: var(--gold-light); }
+
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a {
+    position: relative;
+    font-size: 14px; font-weight: 500;
+    color: var(--cream);
+    opacity: 0.82;
+    padding: 6px 0;
+    transition: color var(--t-fast), opacity var(--t-fast);
+  }
+  .nav-links a:hover { color: var(--gold-light); opacity: 1; }
+  .nav-links a::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: right;
+    transition: transform var(--t-base);
+  }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .btn-nav { padding: 10px 18px; font-size: 14px; }
+
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--line);
+    transition: border-color var(--t-fast), background var(--t-fast);
+  }
+  .nav-toggle:hover { border-color: var(--gold); background: rgba(212,162,76,.06); }
+  .nav-toggle:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+  .nav-toggle .bars { position: relative; width: 22px; height: 1.5px; background: var(--cream); transition: background var(--t-fast); }
+  .nav-toggle .bars::before,
+  .nav-toggle .bars::after {
+    content: '';
+    position: absolute; left: 0; right: 0;
+    height: 1.5px; background: var(--cream);
+    transition: top var(--t-base), transform var(--t-base);
+  }
+  .nav-toggle .bars::before { top: -7px; }
+  .nav-toggle .bars::after { top: 7px; }
+  .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+  .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bars::after { top: 0; transform: rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed; inset: 0;
+    z-index: 40;
+    background: rgba(14,14,14,0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--t-base);
+  }
+  .mobile-menu.is-open { opacity: 1; pointer-events: auto; }
+  .mobile-menu-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 28px;
+    text-align: center;
+    padding: 0 var(--gutter);
+  }
+  .mobile-menu-inner a:not(.btn) {
+    font-family: var(--ff-display);
+    font-size: clamp(28px, 6vw, 36px);
+    font-weight: 600;
+    color: var(--cream);
+    transition: color var(--t-fast);
+  }
+  .mobile-menu-inner a:not(.btn):hover { color: var(--gold-light); }
+  .mobile-menu-cta { margin-top: 12px; }
+
+  @media (max-width: 860px) {
+    .nav-links, .nav > .btn-nav { display: none; }
+    .nav-toggle { display: inline-flex; }
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    padding-top: calc(var(--section-y) + 56px);
+    padding-bottom: var(--section-y);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% 100%, rgba(212, 162, 76, 0.22), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 78% 65%, rgba(232, 185, 100, 0.10), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 80px);
+  }
+  .hero-copy { max-width: 580px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-pill);
+    font-size: 13px; font-weight: 500;
+    color: var(--cream);
+    background: rgba(212,162,76,.05);
+    margin-bottom: 28px;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold-light);
+    box-shadow: 0 0 10px var(--gold);
+  }
+  .hero-title { margin-bottom: 22px; }
+  .hero-subtitle {
+    color: var(--muted);
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+  .hero-cta { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+  .hero-croqueta {
+    width: clamp(280px, 38vw, 480px);
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,.6));
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero-steam {
+    position: absolute;
+    top: -8%; left: 50%;
+    transform: translateX(-50%);
+    width: 55%; height: 38%;
+    pointer-events: none;
+  }
+  .hero-steam path {
+    fill: none;
+    stroke: rgba(245,239,230,0.22);
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0;
+    animation: steam 3.6s ease-in-out infinite;
+  }
+  .hero-steam path:nth-child(1) { animation-delay: 0s; }
+  .hero-steam path:nth-child(2) { animation-delay: 1.2s; }
+  .hero-steam path:nth-child(3) { animation-delay: 2.4s; }
+  @keyframes steam {
+    0% { opacity: 0; transform: translateY(20%); }
+    25% { opacity: .55; }
+    100% { opacity: 0; transform: translateY(-40%); }
+  }
+
+  @media (max-width: 860px) {
+    .hero { min-height: 90vh; padding-top: calc(72px + 48px); }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-visual { order: -1; }
+    .hero-croqueta { width: clamp(220px, 60vw, 320px); }
+  }
+
+  /* ===== Historia ===== */
+  .historia { background: var(--bg); }
+  .historia-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+  .historia-head .eyebrow { margin-bottom: 18px; }
+  .historia-head h2 { margin-bottom: 22px; }
+  .historia-head .lead { margin: 0 auto; }
+
+  .historia-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .geo-card {
+    position: relative;
+    background: var(--bg-2);
+    border-radius: var(--r-lg);
+    padding: 40px 32px 36px;
+    border: 1px solid var(--line);
+    transition: transform var(--t-base), border-color var(--t-base), background var(--t-base);
+  }
+  .geo-card::before {
+    content: '';
+    position: absolute; top: 0; left: 24px; right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .geo-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+    background: var(--surface);
+  }
+  .geo-icon {
+    width: 56px; height: 56px;
+    color: var(--gold-light);
+    margin-bottom: 22px;
+  }
+  .geo-name {
+    font-family: var(--ff-display);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--cream);
+  }
+  .geo-desc {
+    color: var(--muted);
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .geo-desc strong {
+    color: var(--cream);
+    font-weight: 600;
+  }
+
+  .historia-closer {
+    margin-top: 64px;
+    text-align: center;
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--gold-light);
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 860px) {
+    .historia-grid { grid-template-columns: 1fr; gap: 18px; }
+    .geo-card { padding: 32px 26px; }
+  }
+
+  /* ===== Las croquetas (producto) ===== */
+  .producto {
+    background: linear-gradient(180deg, var(--bg) 0%, #100E0B 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .producto::after {
+    content: '';
+    position: absolute;
+    width: 720px; height: 720px;
+    right: -240px; top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(212,162,76,.08), transparent 65%);
+    pointer-events: none;
+  }
+  .producto .container { position: relative; z-index: 1; }
+  .producto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 80px);
+  }
+  .producto-visual { display: flex; align-items: center; justify-content: center; }
+  .croqueta-partida {
+    width: clamp(280px, 40vw, 460px);
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,.55));
+  }
+  .producto-copy { max-width: 520px; }
+  .producto-copy .eyebrow { margin-bottom: 18px; }
+  .producto-copy h2 { margin-bottom: 28px; }
+  .producto-bullets {
+    display: flex; flex-direction: column; gap: 14px;
+    margin-bottom: 36px;
+  }
+  .producto-bullets li {
+    display: flex; align-items: flex-start; gap: 14px;
+    color: var(--cream);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .check-icon {
+    flex: 0 0 auto;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: rgba(212,162,76,.12);
+    border: 1px solid var(--line-strong);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+    color: var(--gold-light);
+  }
+  .check-icon svg { width: 11px; height: 11px; }
+
+  @media (max-width: 860px) {
+    .producto-grid { grid-template-columns: 1fr; gap: 32px; text-align: left; }
+    .producto-visual { order: -1; }
+  }
+
+  /* ===== Sabores ===== */
+  .sabores { background: var(--bg); }
+  .sabores-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+  .sabores-head .eyebrow { margin-bottom: 18px; }
+  .sabores-head h2 { margin-bottom: 22px; }
+  .sabores-head .lead { margin: 0 auto; }
+
+  .sabores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .sabor-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 24px 24px 26px;
+    display: flex; flex-direction: column;
+    transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base), background var(--t-base);
+  }
+  .sabor-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: var(--surface);
+    box-shadow: var(--shadow-md);
+  }
+  .sabor-illust {
+    aspect-ratio: 1;
+    width: 100%;
+    background: radial-gradient(circle at 50% 65%, #1F1A12 0%, #0E0E0E 70%);
+    border-radius: var(--r-md);
+    margin-bottom: 22px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .sabor-illust::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 90% 60% at 50% 80%, rgba(212,162,76,.16), transparent 70%);
+    pointer-events: none;
+  }
+  .sabor-illust svg {
+    width: 76%; height: auto;
+    filter: drop-shadow(0 14px 24px rgba(0,0,0,.55));
+    position: relative; z-index: 1;
+  }
+  .sabor-origin {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line-strong);
+    align-self: flex-start;
+  }
+  .sabor-name {
+    font-family: var(--ff-display);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--cream);
+    line-height: 1.18;
+  }
+  .sabor-desc {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    flex: 1;
+  }
+  .sabor-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-pill);
+    font-size: 14px; font-weight: 600;
+    color: var(--cream);
+    align-self: flex-start;
+    transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast), transform var(--t-fast);
+  }
+  .sabor-btn svg { width: 14px; height: 14px; }
+  .sabor-btn:hover { background: var(--gold); color: #1A1206; border-color: var(--gold); }
+  .sabor-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
+  @media (max-width: 1100px) {
+    .sabores-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .sabores-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Cómo comprar ===== */
+  .proceso { background: linear-gradient(180deg, #100E0B 0%, var(--bg) 100%); }
+  .proceso-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+  .proceso-head .eyebrow { margin-bottom: 18px; }
+  .proceso-head h2 { margin-bottom: 16px; }
+  .proceso-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    counter-reset: step;
+  }
+  .step {
+    position: relative;
+    padding: 28px 4px 0;
+    border-top: 1px solid var(--line);
+  }
+  .step::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0;
+    width: 36%; height: 2px;
+    background: var(--gold);
+  }
+  .step-number {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(40px, 4vw, 52px);
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-title {
+    font-family: var(--ff-display);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+  .step-desc {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .proceso-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+  }
+  @media (max-width: 560px) {
+    .proceso-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ===== Final CTA ===== */
+  .cta-final {
+    position: relative;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 50%, rgba(212, 162, 76, 0.28), transparent 70%),
+      radial-gradient(ellipse 100% 60% at 50% 100%, rgba(184, 134, 46, 0.20), transparent 70%),
+      var(--bg);
+    text-align: center;
+    overflow: hidden;
+  }
+  .cta-final::before,
+  .cta-final::after {
+    content: '';
+    position: absolute;
+    height: 1px; left: 0; right: 0;
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  }
+  .cta-final::before { top: 0; }
+  .cta-final::after { bottom: 0; }
+  .cta-final-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  .cta-final h2 {
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.12;
+    margin-bottom: 36px;
+  }
+  .cta-final h2 .gold { color: var(--gold-light); font-style: italic; font-weight: 600; }
+  .btn-xl { padding: 18px 32px; font-size: 17px; }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    background: #0A0A0A;
+    border-top: 1px solid var(--line);
+    padding: 56px 0 36px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .footer-brand .logo { margin-bottom: 14px; }
+  .footer-tagline {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a, .footer-col span {
+    color: var(--cream);
+    opacity: .85;
+    font-size: 14.5px;
+    transition: color var(--t-fast), opacity var(--t-fast);
+  }
+  .footer-col a:hover { color: var(--gold-light); opacity: 1; }
+
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 860px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ===== Floating WhatsApp ===== */
+  .fab {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    z-index: 60;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    color: #1A1206;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,.45);
+    opacity: 0;
+    transform: translateY(12px) scale(.95);
+    pointer-events: none;
+    transition: opacity var(--t-base), transform var(--t-base), box-shadow var(--t-fast);
+  }
+  .fab.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    animation: fabPulse 2.6s ease-in-out infinite;
+  }
+  .fab:hover { box-shadow: 0 14px 36px rgba(212,162,76,.45), 0 0 0 6px rgba(212,162,76,.18); }
+  .fab:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 4px; }
+  .fab svg { width: 28px; height: 28px; }
+  @keyframes fabPulse {
+    0%, 100% { box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,.45), 0 0 0 0 rgba(212,162,76,.45); }
+    50% { box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,.45), 0 0 0 14px rgba(212,162,76,0); }
+  }
+  .fab-tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-2);
+    color: var(--cream);
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px;
+    border-radius: var(--r-pill);
+    font-size: 13px; font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-fast);
+  }
+  .fab:hover .fab-tooltip,
+  .fab:focus-visible .fab-tooltip { opacity: 1; }
+  @media (max-width: 640px) {
+    .fab { right: 16px; bottom: 16px; width: 56px; height: 56px; }
+    .fab-tooltip { display: none; }
+  }
+
+  /* ===== Reveal on scroll ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== Skip link ===== */
+  .skip-link {
+    position: absolute;
+    left: 12px; top: 12px;
+    z-index: 100;
+    background: var(--bg-2);
+    color: var(--cream);
+    padding: 10px 16px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--gold);
+    font-size: 13px; font-weight: 600;
+    transform: translateY(-200%);
+    transition: transform var(--t-base);
+  }
+  .skip-link:focus-visible { transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .fab.is-visible { animation: none; }
+  }
+</style>
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main">Ir al contenido</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="La Croqueta — inicio">
+      <svg class="logo-mark" viewBox="0 0 76 56" aria-hidden="true">
+        <defs>
+          <radialGradient id="logoGrad" cx="34%" cy="28%" r="82%">
+            <stop offset="0%" stop-color="#F2C98A"/>
+            <stop offset="45%" stop-color="#E8B964"/>
+            <stop offset="100%" stop-color="#8E6420"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="38" cy="28" rx="34" ry="24" fill="url(#logoGrad)"/>
+        <ellipse cx="30" cy="20" rx="11" ry="5" fill="#F8DAA0" opacity=".28"/>
+        <g fill="#5A3D14" opacity=".55">
+          <circle cx="22" cy="22" r="1.4"/>
+          <circle cx="32" cy="16" r="1.1"/>
+          <circle cx="44" cy="20" r="1.3"/>
+          <circle cx="54" cy="26" r="1.2"/>
+          <circle cx="28" cy="32" r="1.3"/>
+          <circle cx="40" cy="36" r="1.5"/>
+          <circle cx="50" cy="38" r="1.1"/>
+          <circle cx="18" cy="34" r="1"/>
+          <circle cx="60" cy="34" r="1.2"/>
+          <circle cx="36" cy="26" r="1"/>
+        </g>
+      </svg>
+      <span class="logo-word">La <span class="accent">Croqueta</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#croquetas">Croquetas</a></li>
+        <li><a href="#sabores">Sabores</a></li>
+        <li><a href="#como-comprar">Cómo comprar</a></li>
+      </ul>
+      <a class="btn btn-primary btn-nav" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">WhatsApp</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú principal">
+  <div class="mobile-menu-inner">
+    <a href="#historia" data-mm>Historia</a>
+    <a href="#croquetas" data-mm>Croquetas</a>
+    <a href="#sabores" data-mm>Sabores</a>
+    <a href="#como-comprar" data-mm>Cómo comprar</a>
+    <a class="btn btn-primary mobile-menu-cta" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener" data-mm>Pedir por WhatsApp</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="hero-badge"><span class="dot" aria-hidden="true"></span>+100.000 croquetas preparadas</span>
+          <h1 class="hero-title" id="heroTitle">Las mejores croquetas de Uruguay,<br>hechas por un <span class="em-italic">chef con mundo</span>.</h1>
+          <p class="hero-subtitle">Artesanales. Crocantes por fuera, cremosas por dentro. Envío a domicilio en Montevideo.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+              Comprar por WhatsApp
+            </a>
+            <a class="btn-link" href="#sabores">Ver sabores ↓</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="hero-steam" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M70 200 C 60 160, 80 140, 70 100 C 65 70, 80 50, 70 20"/>
+            <path d="M100 200 C 110 160, 90 140, 100 100 C 105 70, 90 50, 100 20"/>
+            <path d="M130 200 C 120 160, 140 140, 130 100 C 125 70, 140 50, 130 20"/>
+          </svg>
+          <svg class="hero-croqueta" viewBox="0 0 320 220" aria-hidden="true">
+            <defs>
+              <radialGradient id="heroCroqGrad" cx="38%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#F8DAA0"/>
+                <stop offset="40%" stop-color="#E8B964"/>
+                <stop offset="80%" stop-color="#B8862E"/>
+                <stop offset="100%" stop-color="#6E4A18"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="160" cy="115" rx="140" ry="92" fill="url(#heroCroqGrad)"/>
+            <ellipse cx="120" cy="80" rx="55" ry="22" fill="#FCE5B4" opacity=".22"/>
+            <g fill="#5A3D14" opacity=".5">
+              <circle cx="80" cy="95" r="2.5"/>
+              <circle cx="105" cy="70" r="2"/>
+              <circle cx="135" cy="60" r="2.4"/>
+              <circle cx="170" cy="62" r="1.8"/>
+              <circle cx="200" cy="72" r="2.2"/>
+              <circle cx="225" cy="90" r="2.4"/>
+              <circle cx="245" cy="115" r="2"/>
+              <circle cx="100" cy="130" r="2.6"/>
+              <circle cx="135" cy="148" r="2.2"/>
+              <circle cx="170" cy="158" r="2.5"/>
+              <circle cx="205" cy="148" r="2"/>
+              <circle cx="240" cy="140" r="2.2"/>
+              <circle cx="240" cy="160" r="1.6"/>
+              <circle cx="60" cy="120" r="2"/>
+              <circle cx="75" cy="145" r="1.8"/>
+              <circle cx="155" cy="100" r="1.6"/>
+              <circle cx="190" cy="115" r="2"/>
+              <circle cx="220" cy="125" r="2.2"/>
+              <circle cx="115" cy="105" r="1.5"/>
+              <circle cx="180" cy="130" r="1.4"/>
+              <circle cx="90" cy="160" r="2"/>
+              <circle cx="125" cy="170" r="1.6"/>
+              <circle cx="155" cy="175" r="1.8"/>
+              <circle cx="195" cy="170" r="1.6"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Historia ===== -->
+  <section class="historia" id="historia" aria-labelledby="historiaTitle">
+    <div class="container">
+      <div class="historia-head reveal">
+        <span class="eyebrow">Oficio</span>
+        <h2 id="historiaTitle">Una croqueta. Tres geografías.</h2>
+        <p class="lead">El chef desarrolló su carrera en Uruguay, España y Perú. Cada parada dejó una huella: una técnica, un sabor, una manera de cocinar. Hoy, todo eso se condensa en una sola croqueta artesanal.</p>
+      </div>
+
+      <div class="historia-grid">
+        <article class="geo-card reveal">
+          <svg class="geo-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 30 C 14 22, 20 38, 28 30 C 36 22, 42 38, 50 30"/>
+            <path d="M6 38 C 14 30, 20 46, 28 38 C 36 30, 42 46, 50 38"/>
+          </svg>
+          <h3 class="geo-name">Uruguay</h3>
+          <p class="geo-desc"><strong>Identidad, raíz, sabor de casa.</strong> El origen del chef y la base de todo: la cocina honesta, los productos del campo y la mesa que reúne.</p>
+        </article>
+
+        <article class="geo-card reveal">
+          <svg class="geo-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M28 46 L 10 16 A 22 22 0 0 1 46 16 Z"/>
+            <path d="M28 46 L 18 22"/>
+            <path d="M28 46 L 28 16"/>
+            <path d="M28 46 L 38 22"/>
+          </svg>
+          <h3 class="geo-name">España</h3>
+          <p class="geo-desc"><strong>Marbella y Barcelona.</strong> Donde la croqueta es un arte: bechamel sedosa, técnica precisa y la paciencia de hacer las cosas como se deben hacer.</p>
+        </article>
+
+        <article class="geo-card reveal">
+          <svg class="geo-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="28" cy="28" r="9"/>
+            <path d="M28 8 V 14"/>
+            <path d="M28 42 V 48"/>
+            <path d="M8 28 H 14"/>
+            <path d="M42 28 H 48"/>
+            <path d="M14 14 L 18 18"/>
+            <path d="M38 38 L 42 42"/>
+            <path d="M14 42 L 18 38"/>
+            <path d="M38 18 L 42 14"/>
+          </svg>
+          <h3 class="geo-name">Perú</h3>
+          <p class="geo-desc"><strong>Intensidad, capas y audacia.</strong> La creatividad que despierta el paladar. El ají, la salsa de soya y la fusión que cambian las reglas del juego.</p>
+        </article>
+      </div>
+
+      <p class="historia-closer reveal">«Cada croqueta resume años de oficio, viajes y búsqueda de sabor.»</p>
+    </div>
+  </section>
+
+  <!-- ===== Las croquetas ===== -->
+  <section class="producto" id="croquetas" aria-labelledby="productoTitle">
+    <div class="container">
+      <div class="producto-grid">
+        <div class="producto-visual reveal" aria-hidden="true">
+          <svg class="croqueta-partida" viewBox="0 0 360 280">
+            <defs>
+              <radialGradient id="crustGrad" cx="40%" cy="32%" r="78%">
+                <stop offset="0%" stop-color="#F8DAA0"/>
+                <stop offset="45%" stop-color="#E8B964"/>
+                <stop offset="85%" stop-color="#A47521"/>
+                <stop offset="100%" stop-color="#5E3D12"/>
+              </radialGradient>
+              <radialGradient id="creamGrad" cx="42%" cy="38%" r="68%">
+                <stop offset="0%" stop-color="#FBF1D8"/>
+                <stop offset="60%" stop-color="#EFD7A6"/>
+                <stop offset="100%" stop-color="#C9A972"/>
+              </radialGradient>
+              <radialGradient id="cremaGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFF6E0" stop-opacity=".8"/>
+                <stop offset="100%" stop-color="#FFF6E0" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- shadow base -->
+            <ellipse cx="180" cy="240" rx="150" ry="14" fill="#000" opacity=".35"/>
+            <!-- whole croqueta on the left -->
+            <g transform="translate(0,0)">
+              <ellipse cx="115" cy="155" rx="92" ry="60" fill="url(#crustGrad)"/>
+              <ellipse cx="92" cy="125" rx="36" ry="14" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55">
+                <circle cx="60" cy="135" r="2"/>
+                <circle cx="80" cy="115" r="1.6"/>
+                <circle cx="105" cy="105" r="2"/>
+                <circle cx="135" cy="115" r="1.8"/>
+                <circle cx="160" cy="130" r="2"/>
+                <circle cx="180" cy="150" r="2"/>
+                <circle cx="155" cy="170" r="2"/>
+                <circle cx="120" cy="180" r="1.8"/>
+                <circle cx="85" cy="175" r="1.6"/>
+                <circle cx="60" cy="160" r="1.8"/>
+                <circle cx="100" cy="150" r="1.4"/>
+                <circle cx="140" cy="150" r="1.5"/>
+                <circle cx="170" cy="170" r="1.4"/>
+                <circle cx="75" cy="148" r="1.5"/>
+              </g>
+            </g>
+            <!-- halved croqueta on the right (cross-section) -->
+            <g transform="translate(170,30)">
+              <ellipse cx="100" cy="125" rx="86" ry="56" fill="url(#crustGrad)"/>
+              <ellipse cx="100" cy="125" rx="62" ry="36" fill="url(#creamGrad)"/>
+              <ellipse cx="100" cy="125" rx="62" ry="36" fill="url(#cremaGrad)"/>
+              <g fill="#5A3D14" opacity=".55">
+                <circle cx="36" cy="118" r="2"/>
+                <circle cx="50" cy="98" r="1.6"/>
+                <circle cx="80" cy="84" r="2"/>
+                <circle cx="115" cy="82" r="1.8"/>
+                <circle cx="148" cy="92" r="1.8"/>
+                <circle cx="166" cy="115" r="2"/>
+                <circle cx="160" cy="148" r="1.8"/>
+                <circle cx="135" cy="172" r="2"/>
+                <circle cx="100" cy="178" r="1.8"/>
+                <circle cx="62" cy="170" r="1.7"/>
+                <circle cx="40" cy="148" r="1.6"/>
+              </g>
+              <!-- creamy bechamel highlight -->
+              <ellipse cx="92" cy="115" rx="22" ry="9" fill="#FFFAEC" opacity=".4"/>
+              <!-- soft inner specks (filling) -->
+              <g fill="#A47521" opacity=".25">
+                <circle cx="80" cy="120" r="1.4"/>
+                <circle cx="100" cy="135" r="1.6"/>
+                <circle cx="120" cy="120" r="1.2"/>
+                <circle cx="92" cy="140" r="1.1"/>
+                <circle cx="115" cy="140" r="1.3"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="producto-copy reveal">
+          <span class="eyebrow">El producto</span>
+          <h2 id="productoTitle">Hechas a mano, <span class="em-italic">una por una.</span></h2>
+          <ul class="producto-bullets">
+            <li>
+              <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6 L 5 9 L 10 3"/></svg></span>
+              Artesanales, en lotes pequeños.
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6 L 5 9 L 10 3"/></svg></span>
+              Crocantes por fuera, cremosas por dentro.
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6 L 5 9 L 10 3"/></svg></span>
+              Ingredientes seleccionados, sin atajos.
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6 L 5 9 L 10 3"/></svg></span>
+              Elaboración cuidada por un chef profesional.
+            </li>
+            <li>
+              <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6 L 5 9 L 10 3"/></svg></span>
+              Envío a domicilio en Montevideo.
+            </li>
+          </ul>
+          <a class="btn btn-primary" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sabores ===== -->
+  <section class="sabores" id="sabores" aria-labelledby="saboresTitle">
+    <div class="container">
+      <div class="sabores-head reveal">
+        <span class="eyebrow">La carta</span>
+        <h2 id="saboresTitle">Seis sabores. <span class="em-italic">Tres tradiciones.</span></h2>
+        <p class="lead">Pedí lo que se te antoje, cuando se te antoje. Cada sabor abre su propia conversación de WhatsApp con el chef.</p>
+      </div>
+
+      <div class="sabores-grid">
+
+        <article class="sabor-card reveal">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg1" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg1)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="76" cy="46" r="3.4" fill="#C9594F"/><circle cx="84" cy="54" r="2.6" fill="#A0463E"/><circle cx="64" cy="56" r="2.4" fill="#C9594F"/><circle cx="72" cy="60" r="1.8" fill="#F4D67A"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">España</span>
+          <h3 class="sabor-name">Jamón crudo y queso</h3>
+          <p class="sabor-desc">Bechamel sedosa, jamón curado y queso reserva. La clásica, llevada a su punto.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Jam%C3%B3n%20crudo%20y%20queso." target="_blank" rel="noopener" aria-label="Pedir Jamón crudo y queso por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card reveal">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg2" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg2)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="62" cy="44" r="3.2" fill="#1E1813"/><circle cx="74" cy="58" r="2.6" fill="#1E1813"/><circle cx="84" cy="44" r="2" fill="#0E0A07"/><circle cx="58" cy="60" r="1.8" fill="#0E0A07"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">España</span>
+          <h3 class="sabor-name">Pollo trufado</h3>
+          <p class="sabor-desc">Pollo confitado con aceite de trufa. Un pequeño lujo en cada bocado.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Pollo%20trufado." target="_blank" rel="noopener" aria-label="Pedir Pollo trufado por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card reveal">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg3" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg3)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="68" cy="48" r="3.2" fill="#E26A2C"/><circle cx="78" cy="56" r="2.6" fill="#C9531A"/><circle cx="60" cy="58" r="2" fill="#E26A2C"/><circle cx="84" cy="44" r="1.8" fill="#F58F3D"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">Perú</span>
+          <h3 class="sabor-name">Ají de gallina</h3>
+          <p class="sabor-desc">El plato peruano más querido, en formato croqueta. Cremosa y con carácter.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Aj%C3%AD%20de%20gallina." target="_blank" rel="noopener" aria-label="Pedir Ají de gallina por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card reveal">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg4" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg4)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><rect x="62" y="44" width="6" height="3" rx="1" fill="#7E3A1D" transform="rotate(-15 65 46)"/><rect x="74" y="52" width="7" height="3" rx="1" fill="#5E2913" transform="rotate(20 78 54)"/><circle cx="84" cy="46" r="2" fill="#C9531A"/><circle cx="60" cy="58" r="1.8" fill="#E26A2C"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">Perú</span>
+          <h3 class="sabor-name">Lomo saltado</h3>
+          <p class="sabor-desc">Bife jugoso, cebolla y salsa de soya. Wok peruano dentro de un crocante dorado.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Lomo%20saltado." target="_blank" rel="noopener" aria-label="Pedir Lomo saltado por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card reveal">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg5" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg5)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="68" cy="48" r="3" fill="#3D6A8A"/><circle cx="78" cy="56" r="2.4" fill="#2F5570"/><circle cx="60" cy="58" r="1.8" fill="#3D6A8A"/><circle cx="84" cy="46" r="1.6" fill="#5C7E96"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">España</span>
+          <h3 class="sabor-name">Hongos y queso azul</h3>
+          <p class="sabor-desc">Portobello salteado y queso azul intenso. Para los que buscan algo más.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Hongos%20y%20queso%20azul." target="_blank" rel="noopener" aria-label="Pedir Hongos y queso azul por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card reveal">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg6" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg6)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="64" cy="46" r="1.6" fill="#5E7838"/><circle cx="72" cy="52" r="1.3" fill="#7A9446"/><circle cx="80" cy="46" r="1.5" fill="#5E7838"/><circle cx="68" cy="58" r="1.4" fill="#6E8A4E"/><circle cx="76" cy="62" r="1.2" fill="#5E7838"/><circle cx="84" cy="56" r="1.3" fill="#6E8A4E"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">Uruguay</span>
+          <h3 class="sabor-name">Asado uruguayo</h3>
+          <p class="sabor-desc">Punta de espalda desmechada con un toque de chimichurri. Nuestra firma local.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Asado%20uruguayo." target="_blank" rel="noopener" aria-label="Pedir Asado uruguayo por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Cómo comprar ===== -->
+  <section class="proceso" id="como-comprar" aria-labelledby="procesoTitle">
+    <div class="container">
+      <div class="proceso-head reveal">
+        <span class="eyebrow">El proceso</span>
+        <h2 id="procesoTitle">Comprar es <span class="em-italic">así de simple.</span></h2>
+      </div>
+      <ol class="proceso-grid">
+        <li class="step reveal">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Elegí tus croquetas</h3>
+          <p class="step-desc">Mirá los sabores y combiná los que se te antojen.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Tocá WhatsApp</h3>
+          <p class="step-desc">El botón abre una conversación con el chef, lista para enviar.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Coordinamos el pedido</h3>
+          <p class="step-desc">Confirmamos cantidad, dirección, día y forma de pago.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step-number">04</div>
+          <h3 class="step-title">Las recibís en tu casa</h3>
+          <p class="step-desc">Llegan listas para freír o calentar y disfrutar.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== CTA final ===== -->
+  <section class="cta-final" aria-labelledby="ctaFinalTitle">
+    <div class="cta-final-inner reveal">
+      <h2 id="ctaFinalTitle">Probá las croquetas que combinan la <span class="gold">tradición española</span>, la <span class="gold">creatividad peruana</span> y el <span class="gold">alma uruguaya</span>.</h2>
+      <a class="btn btn-primary btn-xl" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+        Pedir ahora por WhatsApp
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="La Croqueta — inicio">
+          <svg class="logo-mark" viewBox="0 0 76 56" aria-hidden="true">
+            <defs>
+              <radialGradient id="logoGradFooter" cx="34%" cy="28%" r="82%">
+                <stop offset="0%" stop-color="#F2C98A"/>
+                <stop offset="45%" stop-color="#E8B964"/>
+                <stop offset="100%" stop-color="#8E6420"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="38" cy="28" rx="34" ry="24" fill="url(#logoGradFooter)"/>
+            <ellipse cx="30" cy="20" rx="11" ry="5" fill="#F8DAA0" opacity=".28"/>
+            <g fill="#5A3D14" opacity=".55">
+              <circle cx="22" cy="22" r="1.4"/><circle cx="32" cy="16" r="1.1"/>
+              <circle cx="44" cy="20" r="1.3"/><circle cx="54" cy="26" r="1.2"/>
+              <circle cx="28" cy="32" r="1.3"/><circle cx="40" cy="36" r="1.5"/>
+              <circle cx="50" cy="38" r="1.1"/><circle cx="18" cy="34" r="1"/>
+              <circle cx="60" cy="34" r="1.2"/><circle cx="36" cy="26" r="1"/>
+            </g>
+          </svg>
+          <span class="logo-word">La <span class="accent">Croqueta</span></span>
+        </a>
+        <p class="footer-tagline">Croquetas artesanales por un chef con trayectoria en Uruguay, España y Perú. Envío a domicilio en Montevideo.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pedidos</h4>
+        <ul>
+          <li><a href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">WhatsApp · 092 940 944</a></li>
+          <li><a href="https://www.instagram.com/lacroqueta" target="_blank" rel="noopener">Instagram · @lacroqueta</a></li>
+          <li><span>Montevideo, Uruguay</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#croquetas">Las croquetas</a></li>
+          <li><a href="#sabores">Sabores</a></li>
+          <li><a href="#como-comprar">Cómo comprar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 La Croqueta. Hecho con oficio.</span>
+      <span>Diseñado y servido con cariño en Montevideo.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" id="fabWhatsApp" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener" aria-label="Pedí por WhatsApp">
+  <span class="fab-tooltip" aria-hidden="true">Pedí por WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+</a>
+
+<script>
+  (function () {
+    const header = document.getElementById('siteHeader');
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    const fab = document.getElementById('fabWhatsApp');
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      header.classList.toggle('is-scrolled', y > 12);
+      fab.classList.toggle('is-visible', y > 360);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const setMenu = (open) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('is-locked', open);
+    };
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      setMenu(open);
+    });
+    menu.querySelectorAll('[data-mm]').forEach((a) => {
+      a.addEventListener('click', () => setMenu(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenu(false);
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-in'));
+    }
+  })();
+</script>
+</body>
+</html>
