@@ -503,6 +503,105 @@
     .producto-grid { grid-template-columns: 1fr; gap: 32px; text-align: left; }
     .producto-visual { order: -1; }
   }
+
+  /* ===== Sabores ===== */
+  .sabores { background: var(--bg); }
+  .sabores-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+  .sabores-head .eyebrow { margin-bottom: 18px; }
+  .sabores-head h2 { margin-bottom: 22px; }
+  .sabores-head .lead { margin: 0 auto; }
+
+  .sabores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .sabor-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 24px 24px 26px;
+    display: flex; flex-direction: column;
+    transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base), background var(--t-base);
+  }
+  .sabor-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: var(--surface);
+    box-shadow: var(--shadow-md);
+  }
+  .sabor-illust {
+    aspect-ratio: 1;
+    width: 100%;
+    background: radial-gradient(circle at 50% 65%, #1F1A12 0%, #0E0E0E 70%);
+    border-radius: var(--r-md);
+    margin-bottom: 22px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .sabor-illust::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 90% 60% at 50% 80%, rgba(212,162,76,.16), transparent 70%);
+    pointer-events: none;
+  }
+  .sabor-illust svg {
+    width: 76%; height: auto;
+    filter: drop-shadow(0 14px 24px rgba(0,0,0,.55));
+    position: relative; z-index: 1;
+  }
+  .sabor-origin {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line-strong);
+    align-self: flex-start;
+  }
+  .sabor-name {
+    font-family: var(--ff-display);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--cream);
+    line-height: 1.18;
+  }
+  .sabor-desc {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.65;
+    margin-bottom: 22px;
+    flex: 1;
+  }
+  .sabor-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-pill);
+    font-size: 14px; font-weight: 600;
+    color: var(--cream);
+    align-self: flex-start;
+    transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast), transform var(--t-fast);
+  }
+  .sabor-btn svg { width: 14px; height: 14px; }
+  .sabor-btn:hover { background: var(--gold); color: #1A1206; border-color: var(--gold); }
+  .sabor-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
+  @media (max-width: 1100px) {
+    .sabores-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .sabores-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body id="top">
@@ -788,6 +887,135 @@
             Pedir por WhatsApp
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sabores ===== -->
+  <section class="sabores" id="sabores" aria-labelledby="saboresTitle">
+    <div class="container">
+      <div class="sabores-head">
+        <span class="eyebrow">La carta</span>
+        <h2 id="saboresTitle">Seis sabores. <span class="em-italic">Tres tradiciones.</span></h2>
+        <p class="lead">Pedí lo que se te antoje, cuando se te antoje. Cada sabor abre su propia conversación de WhatsApp con el chef.</p>
+      </div>
+
+      <div class="sabores-grid">
+
+        <article class="sabor-card">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg1" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg1)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="76" cy="46" r="3.4" fill="#C9594F"/><circle cx="84" cy="54" r="2.6" fill="#A0463E"/><circle cx="64" cy="56" r="2.4" fill="#C9594F"/><circle cx="72" cy="60" r="1.8" fill="#F4D67A"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">España</span>
+          <h3 class="sabor-name">Jamón crudo y queso</h3>
+          <p class="sabor-desc">Bechamel sedosa, jamón curado y queso reserva. La clásica, llevada a su punto.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Jam%C3%B3n%20crudo%20y%20queso." target="_blank" rel="noopener" aria-label="Pedir Jamón crudo y queso por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg2" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg2)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="62" cy="44" r="3.2" fill="#1E1813"/><circle cx="74" cy="58" r="2.6" fill="#1E1813"/><circle cx="84" cy="44" r="2" fill="#0E0A07"/><circle cx="58" cy="60" r="1.8" fill="#0E0A07"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">España</span>
+          <h3 class="sabor-name">Pollo trufado</h3>
+          <p class="sabor-desc">Pollo confitado con aceite de trufa. Un pequeño lujo en cada bocado.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Pollo%20trufado." target="_blank" rel="noopener" aria-label="Pedir Pollo trufado por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg3" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg3)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="68" cy="48" r="3.2" fill="#E26A2C"/><circle cx="78" cy="56" r="2.6" fill="#C9531A"/><circle cx="60" cy="58" r="2" fill="#E26A2C"/><circle cx="84" cy="44" r="1.8" fill="#F58F3D"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">Perú</span>
+          <h3 class="sabor-name">Ají de gallina</h3>
+          <p class="sabor-desc">El plato peruano más querido, en formato croqueta. Cremosa y con carácter.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Aj%C3%AD%20de%20gallina." target="_blank" rel="noopener" aria-label="Pedir Ají de gallina por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg4" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg4)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><rect x="62" y="44" width="6" height="3" rx="1" fill="#7E3A1D" transform="rotate(-15 65 46)"/><rect x="74" y="52" width="7" height="3" rx="1" fill="#5E2913" transform="rotate(20 78 54)"/><circle cx="84" cy="46" r="2" fill="#C9531A"/><circle cx="60" cy="58" r="1.8" fill="#E26A2C"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">Perú</span>
+          <h3 class="sabor-name">Lomo saltado</h3>
+          <p class="sabor-desc">Bife jugoso, cebolla y salsa de soya. Wok peruano dentro de un crocante dorado.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Lomo%20saltado." target="_blank" rel="noopener" aria-label="Pedir Lomo saltado por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg5" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg5)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="68" cy="48" r="3" fill="#3D6A8A"/><circle cx="78" cy="56" r="2.4" fill="#2F5570"/><circle cx="60" cy="58" r="1.8" fill="#3D6A8A"/><circle cx="84" cy="46" r="1.6" fill="#5C7E96"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">España</span>
+          <h3 class="sabor-name">Hongos y queso azul</h3>
+          <p class="sabor-desc">Portobello salteado y queso azul intenso. Para los que buscan algo más.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Hongos%20y%20queso%20azul." target="_blank" rel="noopener" aria-label="Pedir Hongos y queso azul por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="sabor-card">
+          <div class="sabor-illust">
+            <svg viewBox="0 0 140 100" aria-hidden="true">
+              <defs><radialGradient id="cg6" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
+              <ellipse cx="70" cy="50" rx="62" ry="42" fill="url(#cg6)"/>
+              <ellipse cx="50" cy="34" rx="22" ry="9" fill="#FCE5B4" opacity=".25"/>
+              <g fill="#5A3D14" opacity=".55"><circle cx="32" cy="42" r="1.3"/><circle cx="48" cy="28" r="1.1"/><circle cx="68" cy="22" r="1.3"/><circle cx="92" cy="28" r="1.2"/><circle cx="108" cy="42" r="1.3"/><circle cx="100" cy="62" r="1.4"/><circle cx="80" cy="72" r="1.5"/><circle cx="56" cy="72" r="1.3"/><circle cx="36" cy="62" r="1.2"/><circle cx="68" cy="52" r="1.1"/><circle cx="86" cy="48" r="1.2"/></g>
+              <g><circle cx="64" cy="46" r="1.6" fill="#5E7838"/><circle cx="72" cy="52" r="1.3" fill="#7A9446"/><circle cx="80" cy="46" r="1.5" fill="#5E7838"/><circle cx="68" cy="58" r="1.4" fill="#6E8A4E"/><circle cx="76" cy="62" r="1.2" fill="#5E7838"/><circle cx="84" cy="56" r="1.3" fill="#6E8A4E"/></g>
+            </svg>
+          </div>
+          <span class="sabor-origin">Uruguay</span>
+          <h3 class="sabor-name">Asado uruguayo</h3>
+          <p class="sabor-desc">Punta de espalda desmechada con un toque de chimichurri. Nuestra firma local.</p>
+          <a class="sabor-btn" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas%20de%20Asado%20uruguayo." target="_blank" rel="noopener" aria-label="Pedir Asado uruguayo por WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </article>
+
       </div>
     </div>
   </section>
