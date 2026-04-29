@@ -162,11 +162,213 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* ===== Header & Nav ===== */
+  section[id] { scroll-margin-top: 80px; }
+  body.is-locked { overflow: hidden; }
+
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    height: 72px;
+    display: flex; align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: background var(--t-base), border-color var(--t-base), backdrop-filter var(--t-base);
+  }
+  .site-header.is-scrolled {
+    background: rgba(14, 14, 14, 0.82);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-bottom-color: var(--line);
+  }
+  .site-header .container {
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo { display: inline-flex; align-items: center; gap: 12px; color: var(--cream); }
+  .logo-mark { width: 40px; height: 30px; flex: 0 0 auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+  .logo-word {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.005em;
+    color: var(--cream);
+    white-space: nowrap;
+  }
+  .logo-word .accent { color: var(--gold-light); }
+
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a {
+    position: relative;
+    font-size: 14px; font-weight: 500;
+    color: var(--cream);
+    opacity: 0.82;
+    padding: 6px 0;
+    transition: color var(--t-fast), opacity var(--t-fast);
+  }
+  .nav-links a:hover { color: var(--gold-light); opacity: 1; }
+  .nav-links a::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: right;
+    transition: transform var(--t-base);
+  }
+  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .btn-nav { padding: 10px 18px; font-size: 14px; }
+
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    align-items: center; justify-content: center;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--line);
+    transition: border-color var(--t-fast), background var(--t-fast);
+  }
+  .nav-toggle:hover { border-color: var(--gold); background: rgba(212,162,76,.06); }
+  .nav-toggle:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+  .nav-toggle .bars { position: relative; width: 22px; height: 1.5px; background: var(--cream); transition: background var(--t-fast); }
+  .nav-toggle .bars::before,
+  .nav-toggle .bars::after {
+    content: '';
+    position: absolute; left: 0; right: 0;
+    height: 1.5px; background: var(--cream);
+    transition: top var(--t-base), transform var(--t-base);
+  }
+  .nav-toggle .bars::before { top: -7px; }
+  .nav-toggle .bars::after { top: 7px; }
+  .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
+  .nav-toggle[aria-expanded="true"] .bars::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bars::after { top: 0; transform: rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed; inset: 0;
+    z-index: 40;
+    background: rgba(14,14,14,0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--t-base);
+  }
+  .mobile-menu.is-open { opacity: 1; pointer-events: auto; }
+  .mobile-menu-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 28px;
+    text-align: center;
+    padding: 0 var(--gutter);
+  }
+  .mobile-menu-inner a:not(.btn) {
+    font-family: var(--ff-display);
+    font-size: clamp(28px, 6vw, 36px);
+    font-weight: 600;
+    color: var(--cream);
+    transition: color var(--t-fast);
+  }
+  .mobile-menu-inner a:not(.btn):hover { color: var(--gold-light); }
+  .mobile-menu-cta { margin-top: 12px; }
+
+  @media (max-width: 860px) {
+    .nav-links, .nav > .btn-nav { display: none; }
+    .nav-toggle { display: inline-flex; }
+  }
 </style>
 </head>
-<body>
+<body id="top">
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="La Croqueta — inicio">
+      <svg class="logo-mark" viewBox="0 0 76 56" aria-hidden="true">
+        <defs>
+          <radialGradient id="logoGrad" cx="34%" cy="28%" r="82%">
+            <stop offset="0%" stop-color="#F2C98A"/>
+            <stop offset="45%" stop-color="#E8B964"/>
+            <stop offset="100%" stop-color="#8E6420"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="38" cy="28" rx="34" ry="24" fill="url(#logoGrad)"/>
+        <ellipse cx="30" cy="20" rx="11" ry="5" fill="#F8DAA0" opacity=".28"/>
+        <g fill="#5A3D14" opacity=".55">
+          <circle cx="22" cy="22" r="1.4"/>
+          <circle cx="32" cy="16" r="1.1"/>
+          <circle cx="44" cy="20" r="1.3"/>
+          <circle cx="54" cy="26" r="1.2"/>
+          <circle cx="28" cy="32" r="1.3"/>
+          <circle cx="40" cy="36" r="1.5"/>
+          <circle cx="50" cy="38" r="1.1"/>
+          <circle cx="18" cy="34" r="1"/>
+          <circle cx="60" cy="34" r="1.2"/>
+          <circle cx="36" cy="26" r="1"/>
+        </g>
+      </svg>
+      <span class="logo-word">La <span class="accent">Croqueta</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#croquetas">Croquetas</a></li>
+        <li><a href="#sabores">Sabores</a></li>
+        <li><a href="#como-comprar">Cómo comprar</a></li>
+      </ul>
+      <a class="btn btn-primary btn-nav" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">WhatsApp</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú principal">
+  <div class="mobile-menu-inner">
+    <a href="#historia" data-mm>Historia</a>
+    <a href="#croquetas" data-mm>Croquetas</a>
+    <a href="#sabores" data-mm>Sabores</a>
+    <a href="#como-comprar" data-mm>Cómo comprar</a>
+    <a class="btn btn-primary mobile-menu-cta" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener" data-mm>Pedir por WhatsApp</a>
+  </div>
+</div>
+
 <main>
-  <!-- chunks 2..9 se insertan aquí -->
+  <!-- chunks 3..9 se insertan aquí -->
 </main>
+
+<script>
+  (function () {
+    const header = document.getElementById('siteHeader');
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+
+    const onScroll = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const setMenu = (open) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menu.classList.toggle('is-open', open);
+      document.body.classList.toggle('is-locked', open);
+    };
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      setMenu(open);
+    });
+    menu.querySelectorAll('[data-mm]').forEach((a) => {
+      a.addEventListener('click', () => setMenu(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenu(false);
+    });
+  })();
+</script>
 </body>
 </html>
