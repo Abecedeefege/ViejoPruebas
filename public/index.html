@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Las mejores croquetas de Uruguay, hechas por un chef con mundo. Artesanales, crocantes, a domicilio en Montevideo.">
+<meta name="theme-color" content="#0E0E0E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_UY">
+<meta property="og:title" content="La Croqueta — Croquetas artesanales a domicilio">
+<meta property="og:description" content="Croquetas artesanales por un chef con trayectoria en Uruguay, España y Perú. Pedí por WhatsApp.">
+<title>La Croqueta — Croquetas artesanales a domicilio en Uruguay</title>
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><radialGradient id='g' cx='35%25' cy='30%25' r='75%25'><stop offset='0%25' stop-color='%23E8B964'/><stop offset='100%25' stop-color='%23B8862E'/></radialGradient></defs><ellipse cx='32' cy='32' rx='26' ry='20' fill='url(%23g)'/><circle cx='22' cy='26' r='1.5' fill='%23704C18' opacity='.55'/><circle cx='40' cy='24' r='1.2' fill='%23704C18' opacity='.5'/><circle cx='34' cy='34' r='1.4' fill='%23704C18' opacity='.6'/><circle cx='44' cy='38' r='1.1' fill='%23704C18' opacity='.45'/><circle cx='20' cy='38' r='1' fill='%23704C18' opacity='.5'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E0E0E;
+    --bg-2: #161616;
+    --surface: #1B1B1B;
+    --gold: #D4A24C;
+    --gold-light: #E8B964;
+    --gold-deep: #B8862E;
+    --cream: #F5EFE6;
+    --muted: #A39A8C;
+    --olive: #2F3A2C;
+    --line: rgba(212, 162, 76, 0.18);
+    --line-strong: rgba(212, 162, 76, 0.45);
+
+    --ff-display: "Fraunces", "Times New Roman", serif;
+    --ff-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --container: 1200px;
+    --gutter: clamp(20px, 4vw, 40px);
+    --section-y: clamp(72px, 11vw, 128px);
+
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 22px;
+    --r-pill: 999px;
+
+    --shadow-sm: 0 4px 14px rgba(0,0,0,.35);
+    --shadow-md: 0 18px 40px rgba(0,0,0,.45);
+    --shadow-gold: 0 10px 32px rgba(212,162,76,.18);
+
+    --t-fast: 160ms ease;
+    --t-base: 280ms cubic-bezier(.2,.7,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  ul { list-style: none; padding: 0; margin: 0; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--ff-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    margin: 0;
+    color: var(--cream);
+  }
+  h1 { font-size: clamp(40px, 6.4vw, 72px); }
+  h2 { font-size: clamp(30px, 4.4vw, 48px); }
+  h3 { font-size: clamp(22px, 2.4vw, 28px); }
+  p { margin: 0; }
+
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .lead {
+    color: var(--muted);
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .em-italic { font-style: italic; color: var(--gold-light); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: var(--r-pill);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    transition: transform var(--t-base), box-shadow var(--t-base), background var(--t-fast), color var(--t-fast);
+    will-change: transform;
+  }
+  .btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+  .btn-primary {
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    color: #1A1206;
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(212,162,76,.28); }
+
+  .btn-ghost {
+    color: var(--cream);
+    border: 1px solid var(--line-strong);
+    background: rgba(245,239,230,.02);
+  }
+  .btn-ghost:hover { background: rgba(212,162,76,.08); border-color: var(--gold); }
+
+  .btn-link {
+    color: var(--cream);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    transition: color var(--t-fast), border-color var(--t-fast);
+  }
+  .btn-link:hover { color: var(--gold-light); border-color: var(--gold); }
+
+  section { padding-top: var(--section-y); padding-bottom: var(--section-y); }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+    border: 0;
+    margin: 0;
+  }
+
+  ::selection { background: var(--gold); color: #1A1206; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <!-- chunks 2..9 se insertan aquí -->
+</main>
+</body>
+</html>
