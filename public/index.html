@@ -742,9 +742,96 @@
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
     .footer-bottom { flex-direction: column; align-items: flex-start; }
   }
+
+  /* ===== Floating WhatsApp ===== */
+  .fab {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    z-index: 60;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    color: #1A1206;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,.45);
+    opacity: 0;
+    transform: translateY(12px) scale(.95);
+    pointer-events: none;
+    transition: opacity var(--t-base), transform var(--t-base), box-shadow var(--t-fast);
+  }
+  .fab.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    animation: fabPulse 2.6s ease-in-out infinite;
+  }
+  .fab:hover { box-shadow: 0 14px 36px rgba(212,162,76,.45), 0 0 0 6px rgba(212,162,76,.18); }
+  .fab:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 4px; }
+  .fab svg { width: 28px; height: 28px; }
+  @keyframes fabPulse {
+    0%, 100% { box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,.45), 0 0 0 0 rgba(212,162,76,.45); }
+    50% { box-shadow: var(--shadow-gold), 0 8px 24px rgba(0,0,0,.45), 0 0 0 14px rgba(212,162,76,0); }
+  }
+  .fab-tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-2);
+    color: var(--cream);
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px;
+    border-radius: var(--r-pill);
+    font-size: 13px; font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--t-fast);
+  }
+  .fab:hover .fab-tooltip,
+  .fab:focus-visible .fab-tooltip { opacity: 1; }
+  @media (max-width: 640px) {
+    .fab { right: 16px; bottom: 16px; width: 56px; height: 56px; }
+    .fab-tooltip { display: none; }
+  }
+
+  /* ===== Reveal on scroll ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== Skip link ===== */
+  .skip-link {
+    position: absolute;
+    left: 12px; top: 12px;
+    z-index: 100;
+    background: var(--bg-2);
+    color: var(--cream);
+    padding: 10px 16px;
+    border-radius: var(--r-sm);
+    border: 1px solid var(--gold);
+    font-size: 13px; font-weight: 600;
+    transform: translateY(-200%);
+    transition: transform var(--t-base);
+  }
+  .skip-link:focus-visible { transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .fab.is-visible { animation: none; }
+  }
 </style>
 </head>
 <body id="top">
+
+<a class="skip-link" href="#main">Ir al contenido</a>
 
 <header class="site-header" id="siteHeader">
   <div class="container">
@@ -800,7 +887,7 @@
   </div>
 </div>
 
-<main>
+<main id="main">
 
   <!-- ===== Hero ===== -->
   <section class="hero" aria-labelledby="heroTitle">
@@ -871,14 +958,14 @@
   <!-- ===== Historia ===== -->
   <section class="historia" id="historia" aria-labelledby="historiaTitle">
     <div class="container">
-      <div class="historia-head">
+      <div class="historia-head reveal">
         <span class="eyebrow">Oficio</span>
         <h2 id="historiaTitle">Una croqueta. Tres geografías.</h2>
         <p class="lead">El chef desarrolló su carrera en Uruguay, España y Perú. Cada parada dejó una huella: una técnica, un sabor, una manera de cocinar. Hoy, todo eso se condensa en una sola croqueta artesanal.</p>
       </div>
 
       <div class="historia-grid">
-        <article class="geo-card">
+        <article class="geo-card reveal">
           <svg class="geo-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 30 C 14 22, 20 38, 28 30 C 36 22, 42 38, 50 30"/>
             <path d="M6 38 C 14 30, 20 46, 28 38 C 36 30, 42 46, 50 38"/>
@@ -887,7 +974,7 @@
           <p class="geo-desc"><strong>Identidad, raíz, sabor de casa.</strong> El origen del chef y la base de todo: la cocina honesta, los productos del campo y la mesa que reúne.</p>
         </article>
 
-        <article class="geo-card">
+        <article class="geo-card reveal">
           <svg class="geo-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M28 46 L 10 16 A 22 22 0 0 1 46 16 Z"/>
             <path d="M28 46 L 18 22"/>
@@ -898,7 +985,7 @@
           <p class="geo-desc"><strong>Marbella y Barcelona.</strong> Donde la croqueta es un arte: bechamel sedosa, técnica precisa y la paciencia de hacer las cosas como se deben hacer.</p>
         </article>
 
-        <article class="geo-card">
+        <article class="geo-card reveal">
           <svg class="geo-icon" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="28" cy="28" r="9"/>
             <path d="M28 8 V 14"/>
@@ -915,7 +1002,7 @@
         </article>
       </div>
 
-      <p class="historia-closer">«Cada croqueta resume años de oficio, viajes y búsqueda de sabor.»</p>
+      <p class="historia-closer reveal">«Cada croqueta resume años de oficio, viajes y búsqueda de sabor.»</p>
     </div>
   </section>
 
@@ -923,7 +1010,7 @@
   <section class="producto" id="croquetas" aria-labelledby="productoTitle">
     <div class="container">
       <div class="producto-grid">
-        <div class="producto-visual" aria-hidden="true">
+        <div class="producto-visual reveal" aria-hidden="true">
           <svg class="croqueta-partida" viewBox="0 0 360 280">
             <defs>
               <radialGradient id="crustGrad" cx="40%" cy="32%" r="78%">
@@ -997,7 +1084,7 @@
           </svg>
         </div>
 
-        <div class="producto-copy">
+        <div class="producto-copy reveal">
           <span class="eyebrow">El producto</span>
           <h2 id="productoTitle">Hechas a mano, <span class="em-italic">una por una.</span></h2>
           <ul class="producto-bullets">
@@ -1034,7 +1121,7 @@
   <!-- ===== Sabores ===== -->
   <section class="sabores" id="sabores" aria-labelledby="saboresTitle">
     <div class="container">
-      <div class="sabores-head">
+      <div class="sabores-head reveal">
         <span class="eyebrow">La carta</span>
         <h2 id="saboresTitle">Seis sabores. <span class="em-italic">Tres tradiciones.</span></h2>
         <p class="lead">Pedí lo que se te antoje, cuando se te antoje. Cada sabor abre su propia conversación de WhatsApp con el chef.</p>
@@ -1042,7 +1129,7 @@
 
       <div class="sabores-grid">
 
-        <article class="sabor-card">
+        <article class="sabor-card reveal">
           <div class="sabor-illust">
             <svg viewBox="0 0 140 100" aria-hidden="true">
               <defs><radialGradient id="cg1" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
@@ -1061,7 +1148,7 @@
           </a>
         </article>
 
-        <article class="sabor-card">
+        <article class="sabor-card reveal">
           <div class="sabor-illust">
             <svg viewBox="0 0 140 100" aria-hidden="true">
               <defs><radialGradient id="cg2" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
@@ -1080,7 +1167,7 @@
           </a>
         </article>
 
-        <article class="sabor-card">
+        <article class="sabor-card reveal">
           <div class="sabor-illust">
             <svg viewBox="0 0 140 100" aria-hidden="true">
               <defs><radialGradient id="cg3" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
@@ -1099,7 +1186,7 @@
           </a>
         </article>
 
-        <article class="sabor-card">
+        <article class="sabor-card reveal">
           <div class="sabor-illust">
             <svg viewBox="0 0 140 100" aria-hidden="true">
               <defs><radialGradient id="cg4" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
@@ -1118,7 +1205,7 @@
           </a>
         </article>
 
-        <article class="sabor-card">
+        <article class="sabor-card reveal">
           <div class="sabor-illust">
             <svg viewBox="0 0 140 100" aria-hidden="true">
               <defs><radialGradient id="cg5" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
@@ -1137,7 +1224,7 @@
           </a>
         </article>
 
-        <article class="sabor-card">
+        <article class="sabor-card reveal">
           <div class="sabor-illust">
             <svg viewBox="0 0 140 100" aria-hidden="true">
               <defs><radialGradient id="cg6" cx="38%" cy="30%" r="80%"><stop offset="0%" stop-color="#F8DAA0"/><stop offset="50%" stop-color="#E8B964"/><stop offset="100%" stop-color="#7A5418"/></radialGradient></defs>
@@ -1163,27 +1250,27 @@
   <!-- ===== Cómo comprar ===== -->
   <section class="proceso" id="como-comprar" aria-labelledby="procesoTitle">
     <div class="container">
-      <div class="proceso-head">
+      <div class="proceso-head reveal">
         <span class="eyebrow">El proceso</span>
         <h2 id="procesoTitle">Comprar es <span class="em-italic">así de simple.</span></h2>
       </div>
       <ol class="proceso-grid">
-        <li class="step">
+        <li class="step reveal">
           <div class="step-number">01</div>
           <h3 class="step-title">Elegí tus croquetas</h3>
           <p class="step-desc">Mirá los sabores y combiná los que se te antojen.</p>
         </li>
-        <li class="step">
+        <li class="step reveal">
           <div class="step-number">02</div>
           <h3 class="step-title">Tocá WhatsApp</h3>
           <p class="step-desc">El botón abre una conversación con el chef, lista para enviar.</p>
         </li>
-        <li class="step">
+        <li class="step reveal">
           <div class="step-number">03</div>
           <h3 class="step-title">Coordinamos el pedido</h3>
           <p class="step-desc">Confirmamos cantidad, dirección, día y forma de pago.</p>
         </li>
-        <li class="step">
+        <li class="step reveal">
           <div class="step-number">04</div>
           <h3 class="step-title">Las recibís en tu casa</h3>
           <p class="step-desc">Llegan listas para freír o calentar y disfrutar.</p>
@@ -1194,7 +1281,7 @@
 
   <!-- ===== CTA final ===== -->
   <section class="cta-final" aria-labelledby="ctaFinalTitle">
-    <div class="cta-final-inner">
+    <div class="cta-final-inner reveal">
       <h2 id="ctaFinalTitle">Probá las croquetas que combinan la <span class="gold">tradición española</span>, la <span class="gold">creatividad peruana</span> y el <span class="gold">alma uruguaya</span>.</h2>
       <a class="btn btn-primary btn-xl" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
@@ -1260,14 +1347,22 @@
   </div>
 </footer>
 
+<a class="fab" id="fabWhatsApp" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener" aria-label="Pedí por WhatsApp">
+  <span class="fab-tooltip" aria-hidden="true">Pedí por WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+</a>
+
 <script>
   (function () {
     const header = document.getElementById('siteHeader');
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('mobileMenu');
+    const fab = document.getElementById('fabWhatsApp');
 
     const onScroll = () => {
-      header.classList.toggle('is-scrolled', window.scrollY > 12);
+      const y = window.scrollY;
+      header.classList.toggle('is-scrolled', y > 12);
+      fab.classList.toggle('is-visible', y > 360);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -1288,6 +1383,21 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenu(false);
     });
+
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+      reveals.forEach((el) => io.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-in'));
+    }
   })();
 </script>
 </body>
