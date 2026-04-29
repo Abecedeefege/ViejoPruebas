@@ -658,6 +658,90 @@
   @media (max-width: 560px) {
     .proceso-grid { grid-template-columns: 1fr; gap: 28px; }
   }
+
+  /* ===== Final CTA ===== */
+  .cta-final {
+    position: relative;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 50%, rgba(212, 162, 76, 0.28), transparent 70%),
+      radial-gradient(ellipse 100% 60% at 50% 100%, rgba(184, 134, 46, 0.20), transparent 70%),
+      var(--bg);
+    text-align: center;
+    overflow: hidden;
+  }
+  .cta-final::before,
+  .cta-final::after {
+    content: '';
+    position: absolute;
+    height: 1px; left: 0; right: 0;
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  }
+  .cta-final::before { top: 0; }
+  .cta-final::after { bottom: 0; }
+  .cta-final-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+  .cta-final h2 {
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.12;
+    margin-bottom: 36px;
+  }
+  .cta-final h2 .gold { color: var(--gold-light); font-style: italic; font-weight: 600; }
+  .btn-xl { padding: 18px 32px; font-size: 17px; }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    background: #0A0A0A;
+    border-top: 1px solid var(--line);
+    padding: 56px 0 36px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .footer-brand .logo { margin-bottom: 14px; }
+  .footer-tagline {
+    color: var(--muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a, .footer-col span {
+    color: var(--cream);
+    opacity: .85;
+    font-size: 14.5px;
+    transition: color var(--t-fast), opacity var(--t-fast);
+  }
+  .footer-col a:hover { color: var(--gold-light); opacity: 1; }
+
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 860px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body id="top">
@@ -1108,7 +1192,73 @@
     </div>
   </section>
 
+  <!-- ===== CTA final ===== -->
+  <section class="cta-final" aria-labelledby="ctaFinalTitle">
+    <div class="cta-final-inner">
+      <h2 id="ctaFinalTitle">Probá las croquetas que combinan la <span class="gold">tradición española</span>, la <span class="gold">creatividad peruana</span> y el <span class="gold">alma uruguaya</span>.</h2>
+      <a class="btn btn-primary btn-xl" href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.4A11.8 11.8 0 0 0 3.5 19.6L2 22l2.5-1.4A11.8 11.8 0 1 0 20.5 3.4Zm-8.4 18.2a9.6 9.6 0 0 1-4.9-1.3l-.4-.2-2.9.8.8-2.8-.2-.4a9.6 9.6 0 1 1 7.6 3.9Zm5.3-7.2c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a7.7 7.7 0 0 1-3.8-3.3c-.3-.5.3-.4.8-1.4a.5.5 0 0 0 0-.5c0-.1-.7-1.6-.9-2.2s-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4.1c1.7.7 2.3.7 3.1.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>
+        Pedir ahora por WhatsApp
+      </a>
+    </div>
+  </section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="La Croqueta — inicio">
+          <svg class="logo-mark" viewBox="0 0 76 56" aria-hidden="true">
+            <defs>
+              <radialGradient id="logoGradFooter" cx="34%" cy="28%" r="82%">
+                <stop offset="0%" stop-color="#F2C98A"/>
+                <stop offset="45%" stop-color="#E8B964"/>
+                <stop offset="100%" stop-color="#8E6420"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="38" cy="28" rx="34" ry="24" fill="url(#logoGradFooter)"/>
+            <ellipse cx="30" cy="20" rx="11" ry="5" fill="#F8DAA0" opacity=".28"/>
+            <g fill="#5A3D14" opacity=".55">
+              <circle cx="22" cy="22" r="1.4"/><circle cx="32" cy="16" r="1.1"/>
+              <circle cx="44" cy="20" r="1.3"/><circle cx="54" cy="26" r="1.2"/>
+              <circle cx="28" cy="32" r="1.3"/><circle cx="40" cy="36" r="1.5"/>
+              <circle cx="50" cy="38" r="1.1"/><circle cx="18" cy="34" r="1"/>
+              <circle cx="60" cy="34" r="1.2"/><circle cx="36" cy="26" r="1"/>
+            </g>
+          </svg>
+          <span class="logo-word">La <span class="accent">Croqueta</span></span>
+        </a>
+        <p class="footer-tagline">Croquetas artesanales por un chef con trayectoria en Uruguay, España y Perú. Envío a domicilio en Montevideo.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pedidos</h4>
+        <ul>
+          <li><a href="https://wa.me/59892940944?text=Hola%2C%20quiero%20hacer%20un%20pedido%20de%20croquetas." target="_blank" rel="noopener">WhatsApp · 092 940 944</a></li>
+          <li><a href="https://www.instagram.com/lacroqueta" target="_blank" rel="noopener">Instagram · @lacroqueta</a></li>
+          <li><span>Montevideo, Uruguay</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#croquetas">Las croquetas</a></li>
+          <li><a href="#sabores">Sabores</a></li>
+          <li><a href="#como-comprar">Cómo comprar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 La Croqueta. Hecho con oficio.</span>
+      <span>Diseñado y servido con cariño en Montevideo.</span>
+    </div>
+  </div>
+</footer>
 
 <script>
   (function () {
