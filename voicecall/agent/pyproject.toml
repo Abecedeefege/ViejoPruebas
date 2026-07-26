@@ -1,0 +1,21 @@
+[project]
+name = "voicecall-agent"
+version = "0.1.0"
+description = "Agente de voz por WhatsApp con OpenAI Realtime (gpt-realtime-2.1) — backend de llamadas"
+requires-python = ">=3.11"
+dependencies = [
+    "pipecat-ai[webrtc,silero,openai]>=0.0.60",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "httpx>=0.27",
+    "pydantic-settings>=2.2",
+    "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+testpaths = ["tests"]
